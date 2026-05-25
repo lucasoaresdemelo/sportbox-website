@@ -36,104 +36,21 @@
 
         <!-- FILTROS -->
         <div class="filtros">
-            <button onclick="filtrar('todos')" class="btn ativo">Todos</button>
-            <button onclick="filtrar('copa')" class="btn">Copa do Mundo</button>
-            <button onclick="filtrar('inter')" class="btn">Internacional</button>
+            <button onclick="filtrar('todos', event)" class="btn ativo">
+                Todos
+            </button>
+
+            <button onclick="filtrar('copa', event)" class="btn">
+                Copa do Mundo
+            </button>
+
+            <button onclick="filtrar('inter', event)" class="btn">
+                Internacional
+            </button>
         </div>
 
         <!-- GRID -->
-        <div class="grid">
-
-            <!-- CARD -->
-            <div class="card copa">
-                <img src="brasil.amarelo.2026.jpg" alt="Camisa Brasil">
-                <div class="card-info">
-                    <h3>Camisa Brasil Amarelo 2026</h3>
-                    <p>R$ 120,00</p>
-                    <button onclick="adicionarCarrinho('Camisa Brasil Amarelo 2026', 120.00)" class="btn">
-                        Comprar
-                    </button>
-                </div>
-            </div>
-
-            <div class="card copa">
-                <img src="brasil.azul.2026.jpg" alt="Camisa Brasil Azul">
-                <div class="card-info">
-                    <h3>Camisa Brasil Azul 2026</h3>
-                    <p>R$ 120,00</p>
-                    <button onclick="adicionarCarrinho('Camisa Brasil Azul 2026', 120.00)" class="btn">
-                        Comprar
-                    </button>
-                </div>
-            </div>
-
-            <div class="card copa">
-                <img src="Brasil.retro.amarelo.JPG" alt="Camisa Brasil Retrô Amarelo">
-                <div class="card-info">
-                    <h3>Camisa Brasil Retrô Amarelo</h3>
-                    <p>R$ 70,00</p>
-                    <button onclick="adicionarCarrinho('Camisa Brasil Retrô Amarelo', 120.00)" class="btn">
-                        Comprar
-                    </button>
-                </div>
-            </div>
-
-            <div class="card copa">
-                <img src="brasil.retro.azul.jpg" alt="Camisa Retrô Azul">
-                <div class="card-info">
-                    <h3>Camisa Brasil Retrô Azul</h3>
-                    <p>R$ 70,00</p>
-                    <button onclick="adicionarCarrinho('Camisa Retrô Azul', 120.00)" class="btn">
-                        Comprar
-                    </button>
-                </div>
-            </div>
-
-            <div class="card copa">
-                <img src="brasil.dryfit.amarelo.detalhe.jpg" alt="Camisa Dri-Fit Amarelo">
-                <div class="card-info">
-                    <h3>Camisa Dri-Fit Amarelo</h3>
-                    <p>R$ 50,00</p>
-                    <button onclick="adicionarCarrinho('Camisa Dri-Fit Amarelo', 50.00)" class="btn">
-                        Comprar
-                    </button>
-                </div>
-            </div>
-
-            <div class="card copa">
-                <img src="brasil.dryfit.azul.detalhe.jpg" alt="Camisa Dry-Fit Azul">
-                <div class="card-info">
-                    <h3>Camisa Dry-Fit Azul</h3>
-                    <p>R$ 50,00</p>
-                    <button onclick="adicionarCarrinho('Camisa Dry-Fit Azul', 50.00)" class="btn">
-                        Comprar
-                    </button>
-                </div>
-            </div>
-
-            <div class="card copa">
-                <img src="brasil.dryfit.branco.detalhe.jpg" alt="Camisa Dry-Fit Branco">
-                <div class="card-info"> 
-                    <h3>Camisa Dry-Fit Branco</h3>
-                    <p>R$ 50,00</p>
-                    <button onclick="adicionarCarrinho('Camisa Dry-Fit Branco', 50.00)" class="btn">
-                        Comprar
-                    </button>
-                </div>
-            </div>
-
-            <div class="card copa">
-                <img src="brasil.dryfit.preto.detalhe.jpg" alt="Camisa Dry-Fit Preto">
-                <div class="card-info">
-                    <h3>Camisa Dry-Fit Preto</h3>
-                    <p>R$ 50,00</p>
-                    <button onclick="adicionarCarrinho('Camisa Dry-Fit Preto', 60.00)" class="btn">
-                        Comprar
-                    </button>
-                </div>
-            </div>
-
-        </div>
+<div class="grid"></div>
     </section>
 
     <script src="script.js"></script>

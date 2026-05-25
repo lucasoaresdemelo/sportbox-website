@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria - Camisa Brasil 98 Amarelo - SPORTBOX</title>
+    <link rel="stylesheet" href="sportbox.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        .galeria-container {
+            margin-top: 40px;
+        }
+
+        .voltar {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: #FF6B35;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .voltar:hover {
+            text-decoration: underline;
+        }
+
+        .galeria-titulo {
+            font-size: 28px;
+            margin-bottom: 30px;
+        }
+
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .galeria-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            background: #f5f5f5;
+        }
+
+        .galeria-item img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .galeria-item img:hover {
+            transform: scale(1.05);
+        }
+
+        /* MODAL PARA VER FOTO GRANDE */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal.ativo {
+            display: flex;
+        }
+
+        .modal-conteudo {
+            position: relative;
+            max-width: 90%;
+            max-height: 90vh;
+        }
+
+        .modal-conteudo img {
+            width: 100%;
+            height: auto;
+            max-height: 85vh;
+            object-fit: contain;
+        }
+
+        .modal-botao {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            padding: 15px 20px;
+            font-size: 24px;
+            cursor: pointer;
+            border-radius: 4px;
+            color: #333;
+        }
+
+        .modal-botao:hover {
+            background: white;
+        }
+
+        .modal-botao.prev {
+            left: 20px;
+        }
+
+        .modal-botao.next {
+            right: 20px;
+        }
+
+        .modal-fechar {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        .modal-fechar:hover {
+            color: #FF6B35;
+        }
+
+        .detalhes-info {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 40px;
+        }
+
+        .detalhes-info h3 {
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .detalhes-info p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .botao-comprar {
+            display: inline-block;
+            background-color: #FF6B35;
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            margin-top: 20px;
+        }
+
+        .botao-comprar:hover {
+            background-color: #E55A23;
+        }
+
+        @media (max-width: 768px) {
+            .galeria-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-botao {
+                padding: 10px 15px;
+                font-size: 20px;
+            }
+
+            .modal-botao.prev {
+                left: 10px;
+            }
+
+            .modal-botao.next {
+                right: 10px;
+            }
+
+            .modal-fechar {
+                right: 20px;
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="container">
+        <div class="logo">SPORTBOX</div>
+        <nav>
+            <a href="sportbox.html">Início</a>
+            <a href="sportbox.html#produtos">Produtos</a>
+            <a href="#">Sobre</a>
+            <a href="#">Contato</a>
+        </nav>
+    </header>
+
+    <!-- GALERIA -->
+    <section class="container galeria-container">
+        <a href="sportbox.html#produtos" class="voltar">← Voltar aos produtos</a>
+
+        <h1 class="galeria-titulo">Camisa Brasil 98 Amarelo - Galeria</h1>
+
+        <div class="galeria-grid">
+            <div class="galeria-item">
+                <img src="brasil.retro.amarelo.JPG" alt="Frente da camisa" onclick="abrirFoto(0)">
+                <p style="padding: 10px; text-align: center; font-size: 14px;">Frente</p>
+            </div>
+
+            <div class="galeria-item">
+                <img src="brasil.retro.amarelo.vini.jpg" alt="Detalhe da camisa" onclick="abrirFoto(1)">
+                <p style="padding: 10px; text-align: center; font-size: 14px;">Detalhe</p>
+            </div>
+
+            <div class="galeria-item">
+                <img src="brasil.retro.amarelo.JPG" alt="Vista completa" onclick="abrirFoto(2)">
+                <p style="padding: 10px; text-align: center; font-size: 14px;">Vista Completa</p>
+            </div>
+        </div>
+
+        <!-- DETALHES DO PRODUTO -->
+        <div class="detalhes-info">
+            <h2>Sobre este produto</h2>
+
+            <h3>Descrição</h3>
+            <p>
+                A Camisa Brasil 98 Amarelo é uma peça clássica que traz memórias da Copa do Mundo de 1998. 
+                Um item imprescindível para quem é apaixonado por futebol e quer manter viva a história do esporte.
+            </p>
+
+            <h3>Especificações</h3>
+            <p>
+                <strong>Material:</strong> 100% Poliéster<br>
+                <strong>Tamanhos:</strong> P, M, G, GG<br>
+                <strong>Cores:</strong> Amarelo com detalhes em azul<br>
+                <strong>Preco:</strong> R$ 70.00
+            </p>
+
+            <h3>Benefícios</h3>
+            <p>
+                ✓ Peça retrô e clássica<br>
+                ✓ Excelente para colecionadores<br>
+                ✓ Design vintage que não sai de moda<br>
+                ✓ Tecido confortável<br>
+                ✓ Item de alta qualidade
+            </p>
+
+            <a href="produto-brasil-98-amarelo.html" class="botao-comprar">
+                Ver Detalhes e Comprar →
+            </a>
+        </div>
+    </section>
+
+    <!-- MODAL PARA VER FOTO GRANDE -->
+    <div class="modal" id="modal">
+        <button class="modal-fechar" onclick="fecharFoto()">✕</button>
+
+        <div class="modal-conteudo">
+            <button class="modal-botao prev" onclick="fotoAnterior()">❮</button>
+            <img id="modalFoto" src="" alt="">
+            <button class="modal-botao next" onclick="proximaFoto()">❯</button>
+        </div>
+    </div>
+
+    <script>
+        const fotos = [
+            "brasil.retro.amarelo.JPG",
+            "brasil.retro.amarelo.vini.jpg",
+            "brasil.retro.amarelo.JPG"
+        ];
+
+        let fotoAtual = 0;
+        const modal = document.getElementById("modal");
+        const modalFoto = document.getElementById("modalFoto");
+
+        function abrirFoto(indice) {
+            fotoAtual = indice;
+            modalFoto.src = fotos[fotoAtual];
+            modal.classList.add("ativo");
+        }
+
+        function fecharFoto() {
+            modal.classList.remove("ativo");
+        }
+
+        function proximaFoto() {
+            fotoAtual = (fotoAtual + 1) % fotos.length;
+            modalFoto.src = fotos[fotoAtual];
+        }
+
+        function fotoAnterior() {
+            fotoAtual = (fotoAtual - 1 + fotos.length) % fotos.length;
+            modalFoto.src = fotos[fotoAtual];
+        }
+
+        // Fechar modal clicando fora da imagem
+        modal.addEventListener("click", function(event) {
+            if (event.target === modal) {
+                fecharFoto();
+            }
+        });
+
+        // Navegar com setas do teclado
+        document.addEventListener("keydown", function(event) {
+            if (!modal.classList.contains("ativo")) return;
+            if (event.key === "ArrowRight") proximaFoto();
+            if (event.key === "ArrowLeft") fotoAnterior();
+            if (event.key === "Escape") fecharFoto();
+        });
+    </script>
+</body>
+</html>

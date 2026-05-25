@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camisa Dry-Fit Branco - SPORTBOX</title>
+    <link rel="stylesheet" href="sportbox.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        .produto-detalhes {
+            display: flex;
+            gap: 40px;
+            align-items: start;
+            margin-top: 40px;
+        }
+
+        .produto-imagem {
+            flex: 1;
+        }
+
+        .produto-imagem img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 8px;
+        }
+
+        .produto-info {
+            flex: 1;
+        }
+
+        .produto-info h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .preco-grande {
+            font-size: 28px;
+            color: #FF6B35;
+            font-weight: 700;
+            margin: 20px 0;
+        }
+
+        .descricao {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #666;
+            margin: 30px 0;
+        }
+
+        .tamanhos {
+            margin: 30px 0;
+        }
+
+        .tamanhos label {
+            display: inline-block;
+            margin-right: 15px;
+            margin-bottom: 10px;
+        }
+
+        .tamanhos input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        .quantidade {
+            margin: 30px 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .quantidade button {
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 4px;
+        }
+
+        .quantidade input {
+            width: 60px;
+            text-align: center;
+            border: 1px solid #ddd;
+            padding: 8px;
+            border-radius: 4px;
+        }
+
+        .btn-comprar {
+            background-color: #FF6B35;
+            color: white;
+            padding: 15px 40px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 30px;
+            font-weight: 700;
+        }
+
+        .btn-comprar:hover {
+            background-color: #E55A23;
+        }
+
+        .voltar {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: #FF6B35;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .voltar:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .produto-detalhes {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="container">
+        <div class="logo">SPORTBOX</div>
+        <nav>
+            <a href="sportbox.html">Início</a>
+            <a href="sportbox.html#produtos">Produtos</a>
+            <a href="#">Sobre</a>
+            <a href="#">Contato</a>
+        </nav>
+    </header>
+
+    <!-- CONTEÚDO DO PRODUTO -->
+    <section class="container" style="padding: 40px 0;">
+        <a href="sportbox.html#produtos" class="voltar">← Voltar aos produtos</a>
+
+        <div class="produto-detalhes">
+            <!-- IMAGEM -->
+            <div class="produto-imagem">
+                <img src="brasil.dryfit.branco.detalhe.jpg" alt="Camisa Dry-Fit Branco">
+            </div>
+
+            <!-- INFORMAÇÕES -->
+            <div class="produto-info">
+                <h1>Camisa Dry-Fit Branco</h1>
+                
+                <div class="preco-grande">R$ 50.00</div>
+
+                <p class="descricao">
+                    Camisa Dry-Fit em branco, feita com tecnologia que afasta o suor. Ideal para praticar 
+                    esportes, exercícios e atividades do dia a dia. Conforto máximo e estilo garantido!
+                </p>
+
+                <!-- TAMANHOS -->
+                <div class="tamanhos">
+                    <strong>Tamanho:</strong>
+                    <label><input type="radio" name="tamanho" value="P"> P</label>
+                    <label><input type="radio" name="tamanho" value="M" checked> M</label>
+                    <label><input type="radio" name="tamanho" value="G"> G</label>
+                    <label><input type="radio" name="tamanho" value="GG"> GG</label>
+                </div>
+
+                <!-- QUANTIDADE -->
+                <div class="quantidade">
+                    <strong>Quantidade:</strong>
+                    <button onclick="diminuirQtd()">-</button>
+                    <input type="number" id="qtd" value="1" min="1">
+                    <button onclick="aumentarQtd()">+</button>
+                </div>
+
+                <!-- BOTÃO COMPRAR -->
+                <button class="btn-comprar" onclick="comprarAgora('Camisa Dry-Fit Branco', 50)">
+                    Adicionar ao Carrinho
+                </button>
+
+                <!-- INFORMAÇÕES ADICIONAIS -->
+                <div style="margin-top: 40px; padding-top: 30px; border-top: 1px solid #eee; font-size: 14px; color: #666;">
+                    <p><strong>Frete:</strong> Calcula no checkout</p>
+                    <p><strong>Devolução:</strong> 30 dias</p>
+                    <p><strong>Parcelamento:</strong> Até 3x sem juros</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function aumentarQtd() {
+            let qtd = document.getElementById('qtd');
+            qtd.value = parseInt(qtd.value) + 1;
+        }
+
+        function diminuirQtd() {
+            let qtd = document.getElementById('qtd');
+            if (parseInt(qtd.value) > 1) {
+                qtd.value = parseInt(qtd.value) - 1;
+            }
+        }
+
+        function comprarAgora(nome, preco) {
+            let qtd = document.getElementById('qtd').value;
+            let tamanho = document.querySelector('input[name="tamanho"]:checked').value;
+            alert(`${qtd}x ${nome} (Tamanho ${tamanho}) adicionado ao carrinho!`);
+        }
+    </script>
+</body>
+</html>
